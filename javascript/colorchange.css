@@ -1,0 +1,25 @@
+	.botton{
+		border-radius: 8px;
+		border: 2px solid black;
+		padding: 10px 30px;
+		color: black;
+	    cursor: pointer;
+	}
+.collect{
+	position: absolute;
+	padding: 10px 30px;
+}
+#red{
+	background-color: red;
+    cursor: help;
+}
+#green{
+	background-color: green;
+	cursor: progress;
+}
+#yellow{
+	background-color: yellow;
+}
+#blue{
+	background-color: blue;
+}

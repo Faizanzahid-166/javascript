@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h3 id="show"></h3>
+
+</body>
+<script type="text/javascript">
+ //    setInterval( () => , 1000);	
+ //    function myTimer() {
+ // 	const date = new Date();
+ // 	document.getElementById("show").innerHTML = date.toLocaleTimeString();
+ // }
+
+	const show = document.getElementById('show')
+	setInterval( () => {
+		let date = new Date();
+		console.log(date)
+		show.innerHTML = date.toLocaleTimeString();
+	} , 1000)
+</script>
+
+</html>

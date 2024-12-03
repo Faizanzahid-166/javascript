@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>color change boxs</title>
+</head>
+<style></style>
+<body style="background-color: olive;">
+	<link rel="stylesheet" type="text/css" href="cc.css">
+<div class="collect">
+<h1>boxs scheme color</h1>
+<span class="botton" id='yellow'></span>
+<span class="botton" id='green'></span>
+<span class="botton" id='blue'></span>
+<span class="botton" id='red'></span>
+</div>
+
+<script type="text/javascript">
+	bottons = document.querySelectorAll(".botton");
+	get = document.querySelector("body");
+
+	bottons.forEach( (botton) => {
+		console.log(botton)
+		botton.addEventListener('click',(e) => {
+			// console.log(e);
+			console.log(e.target);
+		if (e.target.id === 'yellow') {
+			get.style.backgroundColor = "yellow";
+		}
+
+		if (e.target.id === 'red') {
+			get.style.backgroundColor = e.target.id;
+		}
+
+		if (e.target.id === 'blue') {
+			get.style.backgroundColor = e.target.id;
+		}
+
+		if (e.target.id === 'green') {
+			get.style.backgroundColor = e.target.id;
+		}
+
+		});
+});
+</script>
+</body>
+</html>
