@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <style>
+    .eachlist{
+        background-color: wheat;
+        border-radius: 5px;
+        padding: 5px 0;
+        margin: 5px 0;
+    }
+
+    .edit{
+        background-color: gray;
+        border-radius: 5px;
+        padding: 5px 14px;
+        margin: 5px 2px;
+
+    }
+
+    /* btn edit hover */
+    .edit:hover{
+        background-color: rgb(4, 204, 4);
+        color: wheat;
+    }
+
+    .delete{
+        background-color: rgb(231, 48, 48);
+        border-radius: 5px;
+        padding: 5px 8px;
+        margin: 5px 0;
+
+    }
+
+    /* btn delete hover */
+    .delete:hover{
+        background-color: red;
+        color: wheat;
+    }
+
+
+  </style>
+  <body class="bg-blue-300">
+
+<!---------------------------- todo-lists -->
+<div class="w-1/2 rounded-xl m-auto mt-15 px-3 py-3 bg-gray-700">
+
+    <!-------------------------- main-heading -->
+    <h1 class="text-center font-bold">TODO LISTS</h1>
+
+    <!---------------------------- enter_todo -->
+    <div class="m-auto ml-6 p-4 flex items-center ">
+        <input 
+            class='w-10/12 bg-gray-400 rounded-xl p-2 mt-1 m-1 focus:bg-white focus:outline-none transition ease-in-out duration-150 placeholder-gray-600'
+            id="input_task"
+			type="text" 
+            placeholder="enter todo ...">
+                        
+        <button class='w-28 bg-sky-300 rounded-2xl hover:bg-sky-500 px-1 py-2'  id="add_btn">
+                        Add Todo
+        </button>
+    </div>
+
+    <!-----------------------------todo_list -->
+    <div class="ml-6 p-4 ">
+        <ul id="todo_list" class=" grid grid-cols-3">
+
+        </ul>
+    </div>
+
+</div>
+
+<script>
+const inputtask = document.getElementById('input_task');
+const todocontainer = document.getElementById('todo_list');
+const addbtn = document.getElementById('add_btn');
+
+addbtn.addEventListener("click", function() {
+   // addbtn console.log
+   console.log(Math.random() * 10,'btn clicked')
+   
+   // create li & append it
+   const todolists = document.createElement('li');
+   const div = todocontainer.appendChild(todolists);
+   console.log(todolists);
+
+   
+   // div = inputtask
+   div.innerText = inputtask.value.trim();
+   inputtask.value = "";
+
+    if (div === '') return;
+
+   // styling li
+   todolists.classList.add('eachlist','col-span-2');
+   todolists.addEventListener("click", function(){
+   todolists.style.textDecoration = "line-through";
+   })
+
+   //creating span for btn
+   const btns = document.createElement('span');
+   btns.classList.add('spans');
+   const btn = todocontainer.appendChild(btns);
+   console.log(btn);
+   
+
+   // btn edit & delete
+   const editbtn = document.createElement('button');
+   editbtn.innerText = 'Edit';
+   editbtn.classList.add('edit');
+   btn.appendChild(editbtn); 
+
+   editbtn.onclick = function () {
+       const newText = prompt('Edit todo:', todolists.innerText)
+       if (newText !== null && newText.trim() !== '') {
+      todolists.innerText = newText;
+        todolists.style.textDecoration = "none";
+    }
+       
+    
+   }
+
+   const deletebtn = document.createElement('button');
+   deletebtn.innerText = 'Delete';
+   deletebtn.classList.add('delete');
+   btn.appendChild(deletebtn);
+
+    deletebtn.onclick = function () {
+        todolists.remove();
+        btns.remove();
+
+  };
+})
+    
+</script>
+
+    
+  </body>
+</html>
