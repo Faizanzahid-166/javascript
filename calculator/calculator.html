@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Calculator</title>
+	<style type="text/css">
+		#A{
+			font-size: 28px;
+			color: blue;
+			font-family: vandadry;
+		}
+		#B{
+			font-size: 28px;
+			font-family: vandadry;
+			color: red;
+		}
+		#C{
+			font-size: 28px;
+			color: limegreen;
+		}
+		.D{
+			font-size: 28px;
+			color: brown;
+		}
+		.result{
+			text-align: start;
+			color: #2f00ff;
+		}
+		h1{
+			font-size: 30px;
+			color: #fff;
+			text-align: center;
+		}
+		div{
+			width: auto;
+			margin-top: 30px;
+		}
+		
+		
+	</style>
+</head>
+<body bgcolor="#413773">
+	<div>
+	<h1>Calculator</h1>	
+	</div>
+
+	
+
+<table style="margin-top: 20px;" align="center" border="2 " cellpadding="3px" cellspacing="3px" bgcolor="yellow">
+	<tr bgcolor="red">
+	    <td><h4>Value 1</h4></td>
+		<td><input type="number" name="A" id="A" placeholder="-----"></td>
+		<td align="center"><select id="C">
+	        <option>+</option>
+	        <option>-</option>
+	        <option value="*">x</option>
+	        <option>/</option>
+	        <option>%</option>
+            </select></td>
+	</tr>
+	<tr bgcolor="blue">
+		<td><h4>Value 2</h4></td>
+		<td><input type="number" name="B" id="B" placeholder="-----"></td>
+		<td><button onclick="cal()" class="D">caculate</button></td>
+	</tr>
+	<tr bgcolor="limegreen">
+		<td><h3>Result :</h3></td>
+		<td colspan="2"><h1 class="result"></h1></td>
+		
+	</tr>
+</table>
+              
+</body>
+<script type="text/javascript">
+
+	function cal() {
+	var A = document.getElementById('A').value;
+	var B = document.getElementById('B').value;
+	var C = document.getElementById('C').value;
+
+	if (C == '+')
+	var result = parseInt(A) + parseInt (B);
+	document.getElementsByClassName('result')[0].innerHTML=result;
+
+	if (C == '-')
+	var result = parseInt(A) - parseInt (B);
+	document.getElementsByClassName('result')[0].innerHTML=result;
+
+	if (C == '*')
+	var result = parseInt(A) * parseInt (B);
+	document.getElementsByClassName('result')[0].innerHTML=result;
+
+	if (C == '/')
+	var result = parseInt(A) / parseInt (B);
+	document.getElementsByClassName('result')[0].innerHTML=result;
+
+	if (C == '%')
+	var result = parseInt(A) % parseInt (B);
+	document.getElementsByClassName('result')[0].innerHTML=result;	
+
+    }
+</script>
+</html>
